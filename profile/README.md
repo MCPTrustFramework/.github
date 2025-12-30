@@ -7,99 +7,75 @@
 
 # MCP Trust Framework (MCPF)
 
-The **Model Context Protocol (MCP)** defines how AI agents and hosts call external tools and data sources.  
-However, MCP does **not** define:
+The Model Context Protocol (MCP) defines how AI agents and hosts call external tools and data sources.
+MCPF adds the missing layer MCP intentionally does not define:
 
-- How to **identify** MCP servers and agents
-- How to **discover** available MCP servers
-- How to **express trust, provenance, and assurance**
-- How to **govern** which MCP servers a host may safely use
+- Identity for MCP servers and agents
+- Discovery of MCP servers
+- Trust, provenance, assurance, and verification
+- Governance controls for which MCP servers a host may safely use
 
-The **MCP Trust Framework (MCPF)** fills this gap.
+MCPF is designed to be compatible with existing MCP servers and hosts.
+It does **not** modify MCP — it adds a trust + discovery layer on top.
 
-It provides:
+## Repositories
 
-- A **specification** for MCP identity and trust (`specs/`)
-- A **reference registry implementation** (`registry-reference-implementation/`)
-- **Client SDKs** for Python and Node.js (`sdks/`)
-- **Examples** of registry entries, credentials, and DID documents (`examples/`)
-- **Governance** and roadmap documents (`governance/`)
+Start here depending on what you’re doing:
 
-MCPF is compatible with any existing MCP server or host. It does not change the MCP protocol; it adds a **trust and discovery layer** on top.
+### Specification (SSOT)
+- **mcpf-specification** — Core specification, schemas, security considerations, versioning
 
+### Reference implementation
+- **mcpf-registry** — Minimal MCP Trust Registry (reference implementation)
 
-## Repository Structure
+### SDKs
+- **mcpf-python** — Python client + verification helpers
+- **mcpf-typescript** — Node/TypeScript client + verification helpers
 
-- `specs/`  
-  Core specifications, JSON schemas, and security considerations for MCPF.
+### Adoption packs
+- **mcpf-quickstarts** — “Hello MCPF” recipes for hosts, registries, and verifiers
+- **mcpf-examples** — Example registry entries, DID docs, credentials, `.well-known` samples
+- **mcpf-conformance** — Conformance tests + fixtures for implementations
 
-- `examples/`  
-  Example registry entries, MCP server credentials, DID documents, and verification guides.
+### Optional (recommended)
+- **mcpf-viewer** — Registry browser + validation UI (playground)
+- **mcpf-mcp** — MCP server that exposes registry queries/verification as MCP tools
 
-- `registry-reference-implementation/`  
-  A minimal MCP Trust Registry implemented with FastAPI (Python).
+## Quick start
 
-- `sdks/python/`  
-  Python client SDK for querying and verifying MCP registry entries.
+1) Read the spec: start with **mcpf-specification**
+2) Run the reference registry: see **mcpf-registry**
+3) Integrate verification in your host/app: use **mcpf-python** or **mcpf-typescript**
+4) Validate with fixtures: use **mcpf-conformance**
 
-- `sdks/node/`  
-  Node.js/TypeScript client SDK for querying and verifying MCP registry entries.
+## `.well-known` discovery
 
-- `governance/`  
-  Versioning, roadmap, and contributor guidelines at the framework level.
+Registry operators may publish discovery metadata at:
 
+`https://<domain>/.well-known/mcp-trust-registry.json`
 
-## Quick Start
-
-1. **Read the spec**
-
-   See [`specs/MCPF-1.0.md`](specs/MCPF-1.0.md) for the core MCP Trust Framework definition.
-
-2. **Run the reference registry**
-
-   See [`registry-reference-implementation/README.md`](registry-reference-implementation/README.md) for instructions to run a local MCP Trust Registry.
-
-3. **Use an SDK**
-
-   - Python: [`sdks/python/`](sdks/python/)
-   - Node.js: [`sdks/node/`](sdks/node/)
-
-4. **Explore examples**
-
-   See [`examples/`](examples/) for sample registry entries, MCP server credentials, and DID documents.
-
-
-## .well-known discovery
-
-A registry operator can expose discovery metadata at:
-
-```text
-https://<domain>/.well-known/mcp-trust-registry.json
-```
-
-An example structure is:
+Example:
 
 ```json
 {
   "mcpfVersion": "1.0",
   "registry": {
-    "name": "Veritrust MCP Trust Registry",
-    "baseUrl": "https://ans.veritrust.vc/mcp"
+    "name": "Example MCP Trust Registry",
+    "baseUrl": "https://registry.example.com/mcp"
   },
   "issuer": {
-    "did": "did:web:veritrust.vc",
-    "name": "Veritrust"
+    "did": "did:web:example.com",
+    "name": "Example Org"
   }
 }
 ```
+Clients can fetch this file first and use registry.baseUrl to configure an SDK client.
 
-Clients can fetch this file first and use `registry.baseUrl` to configure a `RegistryClient`.
+Status
+Specification: Draft
 
+Reference registry: MVP
 
-## Status
+SDKs: MVP
 
-- Specification: **Draft 1.0**
-- Reference implementation: **MVP**
-- SDKs: **MVP**
-
-This project is intended to be open, interoperable, and suitable for enterprise deployment.
+If you are a regulator, enterprise security team, or MCP host vendor and want to pilot MCPF, contact: hello@mcpf.dev
