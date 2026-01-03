@@ -215,7 +215,7 @@ We welcome contributions! Please see individual repository CONTRIBUTING.md files
 
 All MCPF repositories are licensed under **CC BY-NC 4.0** (Creative Commons Attribution-NonCommercial).
 
-**Copyright (c) 2025 VeriTrust Pte Ltd**
+**Copyright (c) 2025 VeriTrust **
 
 - ✅ Free for research, education, and personal use
 - ✅ Attribution required
