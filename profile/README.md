@@ -21,7 +21,7 @@ It does **not** modify MCP — it adds a trust + discovery layer on top.
 
 ---
 
-## 📚 Repositories
+##  Repositories
 
 Start here depending on what you're doing:
 
@@ -57,16 +57,16 @@ Start here depending on what you're doing:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Read the Spec
 Start with **[mcpf-specification](https://github.com/MCPTrustFramework/MCPF-specification)** to understand the architecture.
 
 ### 2. Try a Quickstart
 Choose your path in **[mcpf-quickstarts](https://github.com/MCPTrustFramework/MCPF-quickstarts)**:
-- ⚡ **5-Minute Start** — Docker demo (zero code)
-- 🏃 **15-Minute Start** — SDK integration (write code)
-- 🏗️ **1-Hour Start** — Full system deployment
+-  **5-Minute Start** — Docker demo (zero code)
+-  **15-Minute Start** — SDK integration (write code)
+-  **1-Hour Start** — Full system deployment
 
 ### 3. Run Reference Services
 
@@ -125,7 +125,7 @@ mcpf-test all --config mcpf-config.json
 
 ---
 
-## 🔍 `.well-known` Discovery
+##  `.well-known` Discovery
 
 Registry operators may publish discovery metadata at:
 
@@ -150,7 +150,7 @@ Clients can fetch this file first and use `registry.baseUrl` to configure an SDK
 
 ---
 
-## 📊 Architecture Overview
+##  Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -188,7 +188,7 @@ Clients can fetch this file first and use `registry.baseUrl` to configure an SDK
 
 ---
 
-## 🛡️ Status
+##  Status
 
 | Component | Status | Language | Version |
 |-----------|--------|----------|---------|
@@ -205,27 +205,27 @@ Clients can fetch this file first and use `registry.baseUrl` to configure an SDK
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see individual repository CONTRIBUTING.md files.
 
 ---
 
-## 📄 License
+##  License
 
 All MCPF repositories are licensed under **CC BY-NC 4.0** (Creative Commons Attribution-NonCommercial).
 
 **Copyright (c) 2025 VeriTrust **
 
-- ✅ Free for research, education, and personal use
-- ✅ Attribution required
-- ❌ Commercial use requires permission
+-  Free for research, education, and personal use
+-  Attribution required
+-  Commercial use requires permission
 
 For commercial licensing inquiries: **hello@veritrust.vc**
 
 ---
 
-## 📞 Contact
+##  Contact
 
 - **Website:** https://mcpf.dev _(planned)_
 - **Email:** hello@mcpf.dev
